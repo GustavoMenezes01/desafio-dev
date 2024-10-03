@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste CNAB - Gustavo Menezes</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <div class="box">
+        <h2>Carregar Arquivo</h2>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <label for="upload-arquivo" class="botao-upload">
+                Escolha o arquivo
+            </label>
+            <input type="file" id="upload-arquivo" name="file" required>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+</body>
+</html>
