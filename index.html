@@ -16,10 +16,10 @@
             <input type="file" id="file-upload" name="file" required>
             <button type="submit">Enviar</button>
         </form>
-
-        <form action="totals.php" method="get">
-            <button type="submit">Ver Totais</button>
-        </form>
+        
+        <h2>Visualizar Totais</h2>
+        <button onclick="window.location.href='totals.php'">Ver Totais (HTML)</button>
+        <button onclick="window.location.href='api/totals.php'">Ver Totais (API)</button>
     </div>
 </body>
 </html>
