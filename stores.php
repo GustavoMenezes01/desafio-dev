@@ -11,7 +11,7 @@ $sql = "SELECT
         GROUP BY nome_loja";
 
 $stmt = $pdo->query($sql);
-$lojas = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$AllStores = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -50,7 +50,7 @@ $lojas = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($lojas as $loja): ?>
+                <?php foreach ($AllStores as $store): ?>
                     <tr>
                         <td><?= htmlspecialchars($loja['nome_loja']) ?></td>
                         <td>R$ <?= number_format($loja['saldo_total'], 2, ',', '.') ?></td>
