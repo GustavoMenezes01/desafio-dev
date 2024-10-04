@@ -1,11 +1,23 @@
 <?php
+
 class CNABProcessor {
     private $pdo;
 
+    /**
+     * CNABProcessor constructor.
+     *
+     * @param PDO $pdo
+     */
     public function __construct($pdo) {
         $this->pdo = $pdo;
     }
 
+    /**
+     * Process a line from the CNAB file and extract relevant data.
+     *
+     * @param string $line 
+     * @return array 
+     */
     private function processLine($line) {
         return [
             'type' => (int) substr($line, 0, 1),
@@ -19,6 +31,11 @@ class CNABProcessor {
         ];
     }
 
+    /**
+     * Process the CNAB file and insert the data into the database.
+     *
+     * @param string
+     */
     public function processFile($file) {
         $content = file($file, FILE_IGNORE_NEW_LINES);
         $processedData = array_map([$this, 'processLine'], $content);
@@ -47,3 +64,4 @@ class CNABProcessor {
         echo "File processed successfully!";
     }
 }
+?>

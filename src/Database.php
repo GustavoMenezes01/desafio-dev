@@ -1,7 +1,11 @@
 <?php
+
 class Database {
     private $pdo;
 
+    /**
+     * Database constructor that initializes the PDO instance.
+     */
     public function __construct() {
         $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
         $dotenv->load();
@@ -18,7 +22,13 @@ class Database {
         }
     }
 
+    /**
+     * Get the PDO instance for database connection.
+     *
+     * @return PDO The PDO instance.
+     */
     public function getConnection() {
         return $this->pdo;
     }
 }
+?>
