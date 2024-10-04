@@ -1,63 +1,54 @@
-Gustavo Menezes - Teste Redcheck
+# Gustavo Menezes - Teste RedCheck
 
-Este projeto faz parte do desafio da RedCheck e nele é processado o arquivo CNAB e extraída informações financeiras de transações de lojas. Ele armazena esses dados em um banco de dados e fornece uma API para consultar o saldo total de cada loja com base nas transações importadas.
+Este projeto faz parte do desafio da RedCheck e nele é processado o arquivo CNAB, extraindo informações financeiras de transações de lojas. Ele armazena esses dados em um banco de dados e fornece uma API para consultar o saldo total de cada loja com base nas transações importadas.
 
-Estrutura do Projeto
-1. Importação de Transações CNAB
-O projeto inclui uma funcionalidade para ler arquivos CNAB e extrair informações relevantes, como:
+## Estrutura do Projeto
 
-[ Tipo de transação , Data, Valor, CPF ,Cartão, Hora, Nome do dono da loja, Nome da loja]
+### 1. Importação de Transações CNAB
+O projeto inclui uma funcionalidade para ler arquivos CNAB e extrair as seguintes informações:
 
-2. Banco de Dados
+- Tipo de transação
+- Data
+- Valor
+- CPF
+- Cartão
+- Hora
+- Nome do dono da loja
+- Nome da loja
+
+### 2. Banco de Dados
 O banco de dados armazena as transações importadas e é utilizado para consultas posteriores. As principais tabelas são:
 
-transacoes: contém as transações financeiras.
-lojas: contém as lojas associadas às transações.
+- **transacoes**: contém as transações financeiras.
+- **lojas**: contém as lojas associadas às transações.
 
-3. API de Consulta de Saldos
+### 3. API de Consulta de Saldos
 A API expõe um endpoint que permite consultar o saldo total de cada loja com base nas transações processadas.
 
-Tecnologias Utilizadas
-PHP: linguagem de backend.
-MySQL: banco de dados relacional.
-Composer: gerenciador de dependências.
-PHPUnit: testes unitários.
-Docker: ambiente de desenvolvimento.
+## Tecnologias Utilizadas
 
-Instalação:
+- **PHP**: linguagem de backend.
+- **MySQL**: banco de dados relacional.
+- **Composer**: gerenciador de dependências.
+- **PHPUnit**: testes unitários.
+- **Docker**: ambiente de desenvolvimento.
 
-- git clone https://github.com/seu-usuario/cnab_project.git
-- composer install
-- Configure o arquivo .env com as informações do banco de dados.
+## Instalação
 
-Testes unitários:
+1. Clone o repositório:
+    ```bash
+    git clone https://github.com/seu-usuario/cnab_project.git
+    ```
+
+2. Instale as dependências:
+    ```bash
+    composer install
+    ```
+
+3. Configure o arquivo `.env` com as informações do banco de dados.
+
+## Testes Unitários
+
+Execute os testes unitários com o seguinte comando:
+```bash
 ./vendor/bin/phpunit tests/ --testdox
-
-API Documentation
-
-A API fornece um endpoint para acessar os dados de transações financeiras relacionadas a lojas. Atualmente, há um endpoint disponível para buscar o saldo total de cada loja.
-
-Endpoints
-1. Get Total Balances
-Endpoint: /api/totals.php
-Método: GET
-Descrição: Retorna o saldo total para cada loja com base nos dados de transações importadas.
-Exemplo de Resposta:
-[
-    {
-        "nome_loja": "BAR DO JOÃO",
-        "saldo_total": -102.00
-    },
-    {
-        "nome_loja": "LOJA DO Ó - MATRIZ",
-        "saldo_total": 230.00
-    },
-    {
-        "nome_loja": "MERCADO DA AVENIDA",
-        "saldo_total": 489.20
-    }
-]
-Exemplo de Uso:
-curl -X GET http://localhost/cnab_project/desafio-dev/api/totals.php
-
-
